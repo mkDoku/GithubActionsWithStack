@@ -6,12 +6,10 @@ jobs:
     runs-on: ubuntu-latest # or macOS-latest, or windows-latest
     env:
       ACTIONS_ALLOW_UNSECURE_COMMANDS: 'true'
-      GHC_VERSION: '8.6.5'
-      CABAL_VERSION: '3.0'
     steps:
       - uses: actions/checkout@master
       - uses: actions/setup-haskell@v1.1
         with:
-          ghc-version: ${{env.GHC_VERSION}}
-          cabal-version: ${{env.CABAL_VERSION}}
+          ghc-version: '8.8.3' 
+          cabal-version: '3.0.0.0'
       - run: runhaskell Hello.hs
