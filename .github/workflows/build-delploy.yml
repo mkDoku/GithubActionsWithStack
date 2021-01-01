@@ -5,6 +5,7 @@ jobs:
     name: Hello World
     runs-on: ubuntu-latest # or macOS-latest, or windows-latest
     env:
+      ACTIONS_ALLOW_UNSECURE_COMMANDS: 'true'
       GHC_VERSION: '8.6.5'
       CABAL_VERSION: '3.0'
     steps:
