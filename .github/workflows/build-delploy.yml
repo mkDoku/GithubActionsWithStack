@@ -14,4 +14,4 @@ jobs:
           ghc-version: ${{env.GHC_VERSION}} 
           enable-stack: true
           stack-version: 'latest'
-      - run: runhaskell Hello.hs
+      - run: stack run
