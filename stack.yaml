@@ -1,4 +1,7 @@
-resolver: ghc-8.8.3
+resolver: lts-16.6
 packages:
+  - "."
 nix:
-    enable: true
+  enable: true
+  pure: true
+  packages: [zlib]
