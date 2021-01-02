@@ -2,14 +2,16 @@ on: [push]
 name: build
 jobs:
   runhaskell:
-    name: Hello World
+    name: Build and deploy
     runs-on: ubuntu-latest # or macOS-latest, or windows-latest
     env:
       ACTIONS_ALLOW_UNSECURE_COMMANDS: 'true'
+      GHC_VERSION: '8.8.3'
+      CABAL_VERSION: '3.0.0.0'
     steps:
       - uses: actions/checkout@master
       - uses: actions/setup-haskell@v1.1
         with:
-          ghc-version: '8.8.3' 
-          cabal-version: '3.0.0.0'
+          ghc-version: ${{env.GHC_VERSION}} 
+          cabal-version: ${{env.CABAL_VERSION}}
       - run: runhaskell Hello.hs
