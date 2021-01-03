@@ -27,12 +27,14 @@ jobs:
           key: ${{ runner.os }}-${{ matrix.ghc }}-${{ hashFiles('cabal.project.freeze') }}
           restore-keys: |
             ${{ runner.os }}-${{ matrix.ghc }}-
-      - run: cabal v2-build $CONFIG
+      - run: cabal v2-build --only-dependencies
+      - run: cabal v2-build
+      - run: cabal exec site build
       - name: 'Run peaceiris/actions-gh-pages@v2.5.0: deploy to github pages'
         uses: peaceiris/actions-gh-pages@v2.5.0
         env:
           ACTIONS_DEPLOY_KEY: ${{ secrets.ACTIONS_DEPLOY_KEY }}
-          PUBLISH_BRANCH: master
+          PUBLISH_BRANCH: gh-pages
           PUBLISH_DIR: _site
           EXTERNAL_REPOSITORY: mkDoku/GithubActionsWithStack/_site
         if: github.ref == 'refs/heads/master'
