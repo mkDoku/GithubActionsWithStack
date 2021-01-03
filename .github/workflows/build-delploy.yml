@@ -28,3 +28,11 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-${{ matrix.ghc }}-
       - run: cabal v2-build $CONFIG
+      - name: 'Run peaceiris/actions-gh-pages@v2.5.0: deploy to github pages'
+        uses: peaceiris/actions-gh-pages@v2.5.0
+        env:
+          ACTIONS_DEPLOY_KEY: ${{ secrets.ACTIONS_DEPLOY_KEY }}
+          PUBLISH_BRANCH: master
+          PUBLISH_DIR: _site
+          EXTERNAL_REPOSITORY:  https://mkdoku.github.io/GithubActionsWithStack/
+        if: github.ref == 'refs/heads/master'
