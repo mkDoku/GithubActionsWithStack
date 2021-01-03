@@ -36,5 +36,6 @@ jobs:
           ACTIONS_DEPLOY_KEY: ${{ secrets.ACTIONS_DEPLOY_KEY }}
           PUBLISH_BRANCH: master
           PUBLISH_DIR: _site
-          EXTERNAL_REPOSITORY: mkdoku.github.io/GithubActionsWithStack/_site
+        with:
+          BRANCH: gh-pages
         if: github.ref == 'refs/heads/master'
