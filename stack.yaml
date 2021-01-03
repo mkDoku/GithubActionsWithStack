@@ -1,0 +1,7 @@
+resolver: lts-16.6
+packages:
+  - "."
+nix:
+  enable: true
+  pure: true
+  packages: [zlib]
