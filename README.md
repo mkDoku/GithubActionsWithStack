@@ -16,3 +16,4 @@ Haskell and Hakyll:
   - https://vllmrt.net/spam/hakyll-github-actions-pages.html
   - https://kmaris.net/posts/gh-actions-deploy-key/
   - https://markkarpov.com/post/github-actions-for-haskell-ci.html
+ 
